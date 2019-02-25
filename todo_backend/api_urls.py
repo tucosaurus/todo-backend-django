@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 from todo_backend.base.api.routers import SingletonRouter
 from todo_backend.users.api import CurrentUserViewSet
 from todo_backend.users.auth.api import AuthViewSet
-from todo_backend.todo.api import TodosViewSet
+from todo_backend.todos.api import TodosViewSet
 
 default_router = DefaultRouter(trailing_slash=False)
 singleton_router = SingletonRouter(trailing_slash=False)

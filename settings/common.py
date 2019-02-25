@@ -29,6 +29,7 @@ INSTALLED_APPS = (
 
     'todo_backend.base',
     'todo_backend.users',
+    'todo_backend.todos',
 
     'rest_framework',  # http://www.django-rest-framework.org/
     'rest_framework_swagger',

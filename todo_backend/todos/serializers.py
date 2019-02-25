@@ -1,10 +1,12 @@
 from rest_framework import serializers
 
+from . import models
+
 
 class TodosSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = None
+        model = models.Todo
         fields = (
             'id',
             'todo',

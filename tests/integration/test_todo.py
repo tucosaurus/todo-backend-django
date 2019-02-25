@@ -19,7 +19,7 @@ def test_authenticated_user_can_create_todo(client):
     url = reverse('todos-list')
     client.login(user)
     response = client.json.post(url, json.dumps(data))
-    assert response.status_code == 200
+    assert response.status_code == 201
     expected_keys = [
         "id", "todo", "description", "is_completed", "created_at", "modified_at"
     ]
