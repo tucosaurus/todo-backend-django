@@ -5,6 +5,12 @@ from todo_backend.base.models import TimeStampedUUIDModel
 
 
 class Todo(TimeStampedUUIDModel):
+    user = models.ForeignKey(
+        'users.User',
+        null=True,
+        related_name='todos',
+        on_delete=models.CASCADE
+    )
     todo = models.CharField(
         max_length=150,
         help_text='Name of this todo'

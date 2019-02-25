@@ -25,6 +25,10 @@ def test_authenticated_user_can_create_todo(client):
     ]
     assert set(response.data.keys()) == set(expected_keys)
 
+    user.refresh_from_db()
+    assert user.todos.exists() is True
+    assert user.todos.count() == 1
+
 
 def test_non_authenticated_user_cannot_create_todo(client):
     data = {
@@ -33,4 +37,3 @@ def test_non_authenticated_user_cannot_create_todo(client):
     url = reverse('todos-list')
     response = client.json.post(url, json.dumps(data))
     assert response.status_code == 401
-    
