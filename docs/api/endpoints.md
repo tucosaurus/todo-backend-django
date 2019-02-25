@@ -3,6 +3,7 @@ For api overview and usages, check out [this page](overview.md).
 [TOC]
 
 # Authentication
+All api calls are authenticated unless otherwise stated.
 
 ## Login
 
@@ -203,4 +204,136 @@ __Response__
     "last_name": "Warner",
     "email": "john@localhost.com",
 }
+```
+
+# TODOS
+
+# Create a todo
+
+Name  | Type | Description
+------|------|-------------------
+id    | string/uuid| unique id for the todo
+todo  | string |todo name
+description | string | description for the todo to be completed
+is_completed | boolean | Signifies whether the todo is completed
+created_at | string/datetime | Date and time when the todo was created
+modified_at | string/datetime | Date and time when the todo was modified
+
+__Request__
+```
+POST /api/todos
+```
+__Parameters__
+
+Name          | Required     |Description
+--------------|--------------|-----------------------
+todo          |     y        | Name of the todo
+description   |     n        | description of the todo
+
+```
+{
+    "todo": "Read SICP",
+    "description": ""
+}
+```
+
+__Response__
+```
+Status 201 Created
+```
+```
+{
+    "id": "629b1e03-53f0-43ef-9a03-17164cf782ac",
+    "todo": "Read SICP",
+    "description": "",
+    "is_completed": false,
+    "created_at": "2019-01-13T14:27:24.505222Z",
+    "modified_at": "2019-01-13T14:27:24.505222Z"
+}
+```
+
+# Retrieve all todos for user
+
+__Request__
+```
+GET /api/todos
+```
+
+__Response__
+```
+Status 200 OK
+```
+```
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+        "id": "4903c586-1696-4bf2-8e61-3df2c1547549",
+        "todo": "Read SICP",
+        "description": "",
+        "is_completed": true,
+        "created_at": "2019-01-13T14:27:24.505222Z",
+        "modified_at": "2019-01-13T14:27:24.505238Z"
+        }
+    ]
+}
+```
+
+# Retrieve a specific todo for a user
+
+__Request__
+```
+GET /api/todos/:id
+```
+
+__Response__
+```
+{
+    "id": "629b1e03-53f0-43ef-9a03-17164cf782ac",
+    "todo": "Read SICP",
+    "description": "",
+    "is_completed": true,
+    "created_at": "2019-01-13T14:27:24.505222Z",
+    "modified_at": "2019-01-13T14:27:24.505222Z"
+}
+```
+
+# Patch a todo
+
+__Request__
+```
+PATCH /api/todos/:id
+```
+```
+{
+    "is_completed": true
+}
+```
+
+__Response__
+```
+Status 200 OK
+```
+```
+{
+    "id": "629b1e03-53f0-43ef-9a03-17164cf782ac",
+    "todo": "Read SICP",
+    "description": "",
+    "is_completed": true,
+    "created_at": "2019-01-13T14:27:24.505222Z",
+    "modified_at": "2019-01-13T14:27:24.505222Z"
+}
+```
+
+# Delete a todo
+__Request__
+```
+DELETE /api/todos/:id
+```
+
+__Response__
+```
+Status 204 No Content
 ```
