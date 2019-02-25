@@ -27,5 +27,5 @@ def create_user(**kwargs):
 
 def create_todo(**kwargs):
     """Create a todo along with their dependencies"""
-    Todo = apps.get_model(settings.AUTH_USER_MODEL)
+    Todo = apps.get_model('todos.Todo')
     return G(Todo, **kwargs)
