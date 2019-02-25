@@ -8,7 +8,7 @@ All api calls are authenticated unless otherwise stated.
 ## Login
 
 ```
-POST /api/auth/login
+POST /api/auth/login  (not authenticated)
 ```
 
 **Parameters**
@@ -42,7 +42,7 @@ Status: 200 OK
 ## Register
 
 ```
-POST /api/auth/register
+POST /api/auth/register   (not authenticated)
 ```
 
 **Parameters**
@@ -76,7 +76,7 @@ Status: 201 Created
 ## Change password
 
 ```
-POST /api/auth/password_change (requires authentication)
+POST /api/auth/password_change
 ```
 
 **Parameters**
@@ -105,7 +105,7 @@ Status: 204 No-Content
 Send an email to user if the email exist.
 
 ```
-POST /api/auth/password_reset
+POST /api/auth/password_reset   (not authenticated)
 ```
 
 **Parameters**
@@ -136,7 +136,7 @@ Status: 200 OK
 Confirm password reset for the user using the token sent in email.
 
 ```
-POST /api/auth/password_reset_confirm
+POST /api/auth/password_reset_confirm   (not authenticated)
 ```
 
 **Parameters**
@@ -168,7 +168,7 @@ Status: 204 No-Content
 
 ## Get profile of current logged-in user
 ```
-GET /api/me (requires authentication)
+GET /api/me
 ```
 
 __Response__
@@ -184,7 +184,7 @@ __Response__
 
 ## Update profile of current logged-in user
 ```
-PATCH /api/me (requires authentication)
+PATCH /api/me
 ```
 
 __Example__
