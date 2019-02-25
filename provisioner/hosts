@@ -1,0 +1,66 @@
+[vagrant]
+192.168.33.12
+
+[vagrant:vars]
+vm=1
+deploy_environment=vagrant
+project_namespace={{ project_name }}-{{ deploy_environment }}
+user=vagrant
+project_path=/home/vagrant/todo-backend-django
+venv_path=/home/vagrant/venv
+django_requirements_file=requirements/development.txt
+django_settings="settings.development"
+use_letsencrypt=False
+pg_db=todo_backend
+pg_user=vagrant
+pg_password=vagrant
+domain_name=vagrant.todo_backend.com
+
+[dev]
+dev.todo_backend.com
+
+[dev:vars]
+vm=0
+deploy_environment=dev
+user=ubuntu
+project_namespace={{ project_name }}-{{ deploy_environment }}
+project_path=/home/ubuntu/{{ deploy_environment }}/todo-backend-django
+venv_path=/home/ubuntu/{{ deploy_environment }}/{{ project_name }}-venv
+use_letsencrypt=True
+letsencrypt_email=tucosaurus+todo-backend@gmail.com
+django_requirements_file=requirements.txt
+django_settings="settings.production"
+domain_name=dev.todo_backend.com
+
+
+[qa]
+qa.todo_backend.com
+
+[qa:vars]
+vm=0
+deploy_environment=qa
+user=ubuntu
+project_namespace={{ project_name }}-{{ deploy_environment }}
+project_path=/home/ubuntu/{{ deploy_environment }}/todo-backend-django
+venv_path=/home/ubuntu/{{ deploy_environment }}/{{ project_name }}-venv
+use_letsencrypt=True
+letsencrypt_email=tucosaurus+todo-backend@gmail.com
+django_requirements_file=requirements.txt
+django_settings="settings.production"
+domain_name=qa.todo_backend.com
+
+[production]
+todo_backend.com
+
+[production:vars]
+vm=0
+deploy_environment=prod
+user=ubuntu
+project_namespace={{ project_name }}-{{ deploy_environment }}
+project_path=/home/ubuntu/{{ deploy_environment }}/todo-backend-django
+venv_path=/home/ubuntu/{{ deploy_environment }}/{{ project_name }}-venv
+use_letsencrypt=True
+letsencrypt_email=tucosaurus+todo-backend@gmail.com
+django_requirements_file=requirements.txt
+django_settings="settings.production"
+domain_name=todo_backend.com
