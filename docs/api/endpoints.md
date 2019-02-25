@@ -11,14 +11,14 @@ All api calls are authenticated unless otherwise stated.
 POST /api/auth/login  (not authenticated)
 ```
 
-**Parameters**
+__Parameters__
 
 Name     | Description
 ---------|-------------------------------------
 email    | email of the user. 
 password | password of the user.
 
-**Request**
+__Request__
 ```json
 {
     "email": "hello@example.com",
@@ -26,7 +26,7 @@ password | password of the user.
 }
 ```
 
-**Response**
+__Response__
 ```json
 
 Status: 200 OK
@@ -45,14 +45,14 @@ Status: 200 OK
 POST /api/auth/register   (not authenticated)
 ```
 
-**Parameters**
+__Parameters__
 
 Name     | Description
 ---------|-------------------------------------
 email    | email of the user. Errors out if email already registered.
 password | password of the user.
 
-**Request**
+__Request__
 ```json
 {
     "email": "hello@example.com",
@@ -60,7 +60,7 @@ password | password of the user.
 }
 ```
 
-**Response**
+__Response__
 ```json
 
 Status: 201 Created
@@ -79,14 +79,14 @@ Status: 201 Created
 POST /api/auth/password_change
 ```
 
-**Parameters**
+__Parameters__
 
 Name             | Description
 -----------------|-------------------------------------
 current_password | Current password of the user.
 new_password     | New password of the user.
 
-**Request**
+__Request__
 ```json
 {
     "current_password": "NotSoSafePassword",
@@ -94,7 +94,7 @@ new_password     | New password of the user.
 }
 ```
 
-**Response**
+__Response__
 ```
 Status: 204 No-Content
 ```
@@ -108,20 +108,20 @@ Send an email to user if the email exist.
 POST /api/auth/password_reset   (not authenticated)
 ```
 
-**Parameters**
+__Parameters__
 
 Name  | Description
 ------|-------------------------------------
 email | (required) valid email of an existing user.
 
-**Request**
+__Request__
 ```json
 {
     "email": "hello@example.com"
 }
 ```
 
-**Response**
+__Response__
 ```json
 
 Status: 200 OK
@@ -139,7 +139,7 @@ Confirm password reset for the user using the token sent in email.
 POST /api/auth/password_reset_confirm   (not authenticated)
 ```
 
-**Parameters**
+__Parameters__
 
 Name          | Description
 --------------|-------------------------------------
@@ -147,7 +147,7 @@ new_password  | New password of the user
 token         | Token decoded from the url (verification link)
 
 
-**Request**
+__Request__
 ```json
 {
     "new_password": "new_pass",
@@ -155,12 +155,12 @@ token         | Token decoded from the url (verification link)
 }
 ```
 
-**Response**
+__Response__
 ```
 Status: 204 No-Content
 ```
 
-**Note**
+__Note__
 - The verification link uses the format of key `password-confirm` in `FRONTEND_URLS` dict in settings/common.
 
 
