@@ -12,3 +12,6 @@ class TodosViewSet(
         ):
     serializer_class = serializers.TodosSerializer
     queryset = None
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
