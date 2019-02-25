@@ -14,7 +14,7 @@ from django.utils import six
 
 
 from .common import *  # noqa F405
-from .common import (DATABASES, INSTALLED_APPS, 
+from .common import (DATABASES, INSTALLED_APPS,
                      REST_FRAMEWORK, TEMPLATES, env)
 
 # SITE CONFIGURATION
@@ -40,8 +40,6 @@ MANAGERS = ADMINS
 # CORS
 # --------------------------------------------------------------------------
 CORS_ORIGIN_WHITELIST = env.list('CORS_ORIGIN_WHITELIST')
-
-
 
 # If your Django app is behind a proxy that sets a header to specify secure
 # connections, AND that proxy ensures that user-submitted headers with the
