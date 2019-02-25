@@ -1,6 +1,7 @@
-from rest_framework import viewsets, mixins
+# Third Party Stuff
+from rest_framework import mixins, viewsets
 
-from . import serializers, models
+from . import models, serializers
 
 
 class TodosViewSet(

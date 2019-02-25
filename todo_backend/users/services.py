@@ -1,5 +1,5 @@
 # Third Party Stuff
-from django.contrib.auth import get_user_model, authenticate
+from django.contrib.auth import authenticate, get_user_model
 
 # todo-backend Stuff
 from todo_backend.base import exceptions as exc

@@ -1,6 +1,9 @@
+# Third Party Stuff
 from django.db import models
 
+# todo-backend Stuff
 from todo_backend.base.models import TimeStampedUUIDModel
+
 # Create your models here.
 
 

@@ -2,7 +2,6 @@
 from django.conf import settings
 from mail_templated import send_mail
 
-# todo-backend Stuff
 from .tokens import get_token_for_password_reset
 
 
